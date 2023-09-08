@@ -1,0 +1,22 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+    <div class="work-places">
+        <div class="work-place">
+            <div class="content-work-place">
+                <h2>All work place</h2>
+                <a href="{% url 'work_by_place' 'all' %}">View</a>
+            </div>
+            <img src="../../static/img/komanda-restorana.jpeg">
+        </div>
+        {% for work_place in work_places %}
+        <div class="work-place">
+            <div class="content-work-place">
+                <h2>{{work_place.street}}</h2>
+                <a href="{% url 'work_by_place' work_place.slug %}">View</a>
+            </div>
+            <img src="{{ work_place.photo.url }}">
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

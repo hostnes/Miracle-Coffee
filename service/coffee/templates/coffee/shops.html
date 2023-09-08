@@ -1,0 +1,18 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+      <div class="shops">
+          {% for shop in shops %}
+        <div class="one-shop">
+            <h2>Shop</h2>
+            <div class="shop-about">
+            <img src="{{ shop.photo.url }}" alt="" />
+            <div class="shop-text">
+              <h3>{{ shop.street }}</h3>
+              <a href="{% url 'shop' shop.slug %}">open</a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+{% endblock %}

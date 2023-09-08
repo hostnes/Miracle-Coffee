@@ -1,0 +1,18 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+      <div class="contacts">
+          {% for contact in contacts %}
+        <div class="contact">
+          <h2>{{ contact.job_title }}</h2>
+          <div class="contact-about">
+            <img src="{{ contact.photo.url }}" alt="" />
+            <div class="contact-text">
+              <h3>{{ contact.name }}</h3>
+              <a href="{% url 'contact' contact.slug %}">open</a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+{% endblock %}

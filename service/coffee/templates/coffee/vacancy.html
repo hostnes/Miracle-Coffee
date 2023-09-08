@@ -1,0 +1,20 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+    <div class="vacancy">
+        <h1>{{ vacancy.title }}</h1>
+        <img src="{{vacancy.photo.url}}">
+        <h2>{{ vacancy.description }}</h2>
+        <div class="vacancy-text">
+            <h3>Salary: {{ vacancy.salary }} $</h3>
+            <h3>{{ vacancy.coffee_shop.street }}</h3>
+        </div>
+        <form action="{% url 'vacancy' vacancy.slug%}" method="post">
+            {% csrf_token %}
+            {% for f in form%}
+            <p><label class="form-class" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            {% endfor %}
+            <button type="submit" id="form-button">Send</button>
+        </form>
+    </div>
+{% endblock %}

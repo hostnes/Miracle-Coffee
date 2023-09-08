@@ -1,0 +1,18 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+    <div class="about-contact">
+          <h2>{{ contact.job_title }}</h2>
+          <div class="profile">
+            <img src="{{ contact.photo.url }}" alt="" />
+            <div class="profile-text">
+              <h3>{{contact.name}}</h3>
+              <p>{{ contact.description}}</p>
+              <div class="number">
+                <p></p>
+                <h4>+666999123</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+    <div class="works-by-place">
+        <div class="work-list">
+            {% for work in page_obj %}
+            <div class="worker">
+                <div class="toper">
+                    <h2>{{ work.title }}</h2>
+                    <div class="eyes">
+                        <p>{{work.views}}</p>
+                        <img src="../../static/img/eye.PNG">
+                    </div>
+                </div>
+                <img src="{{ work.photo.url }}">
+                <p>{{ work.description }}</p>
+                <div class="worker-text">
+                    <h3>Salary: {{ work.salary }} $</h3>
+                    <a href="{% url 'vacancy' work.slug%}">Registry</a>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="div-page">
+                {% for p in page_obj.paginator.page_range %}
+                    {% if page_obj.number == p %}
+                    <a id="select-page" href="?page={{p}}">{{p}}</a>
+                    {% else %}
+                    <a class="pages-text" href="?page={{p}}">{{p}}</a>
+                    {% endif %}
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+{% endblock %}

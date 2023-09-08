@@ -1,0 +1,18 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+    <div class="about-shop">
+          <h2>Shop</h2>
+          <div class="shop">
+            <img src="{{ shop.photo.url }}" alt="" />
+            <div class="shop-text">
+              <h3>{{shop.street}}</h3>
+              <p>{{ shop.description}}</p>
+              <div class="number">
+                <p></p>
+                <h4>{{shop.work_time}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}

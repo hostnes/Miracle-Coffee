@@ -1,0 +1,23 @@
+{% extends 'coffee/base.html' %}
+
+{% block canteiner%}
+<h1>Menu</h1>
+    <div class="content">
+        {% for key, value in menu.items%}
+        <div class="categori">
+            <h2>{{key}}</h2>
+        </div>
+        <div class="coffee-list">
+            {% for i in value%}
+            <div class="coffee">
+                <img src="{{ i.photo.url }}" alt="" />
+                <h2>{{ i.title }}</h2>
+                <h3>{{ i.price }} BYN</h3>
+                <p>{{ i.description}}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
